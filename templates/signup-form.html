@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+      <meta name="author" content="Sara Vagnarelli">
+      <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+      <title>my blog</title>
+      <!-- sheets -->
+      <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+      <link rel="stylesheet" type="text/css" href="/css/style.css">
+      <!-- icon and web font -->
+      <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" href="http://weloveiconfonts.com/api/?family=zocial"/>
+      <link rel="stylesheet" type="text/css" href="/css/zocial.css">
+      <!-- javascript -->
+      <script type="text/javascript" src="/js/jquery-1.11.1.js"></script>
+  </head>
+
+  <body>
+    
+    <header>
+      <div class="login-header">
+        <br>
+        <h2>Signup</h2>
+        <br>
+      </div>
+    </header>
+
+    <article>
+      <form method="post">
+        <br>
+        <table>
+          <tr>
+            <td class="label">
+              Username: 
+            </td>
+            <td>
+              <input type="text" name="username" value="{{username}}">
+            </td>
+            <td class="error">
+              {{error_username}}
+            </td>
+          </tr>
+
+          <tr>
+            <td class="label">
+              Password: 
+            </td>
+            <td>
+              <input type="password" name="password" value="">
+            </td>
+            <td class="error">
+              {{error_password}}
+            </td>
+          </tr>
+
+          <tr>
+            <td class="label">
+              Verify Password: 
+            </td>
+            <td>
+              <input type="password" name="verify" value="">
+            </td>
+            <td class="error">
+              {{error_verify}}
+            </td>
+          </tr>
+
+          <tr>
+            <td class="label">
+              Email (optional): 
+            </td>
+            <td>
+              <input type="text" name="email" value="{{email}}">
+            </td>
+            <td class="error">
+              {{error_email}}
+            </td>
+          </tr>
+        </table>
+        <br>
+        <input type="submit" value="signup">
+      </form>
+      <br><br>
+    </article>
+
+    <footer>
+      <a class="blog-page-link" href="/blog/">go to blog page    </a> OR <a class="login-link" href="/login">  login</a>
+    </footer>
+
+  </body>
+
+</html>

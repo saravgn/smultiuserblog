@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {{post.render() | safe}}
+<br>
+<form action="/blog">
+    <input type="submit" value="return to blog page" />
+</form> 
+{% endblock %}
+
+ 

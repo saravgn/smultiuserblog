@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="author" content="Sara Vagnarelli">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>my blog</title>
+    <!-- sheets -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <!-- icon and web font -->
+    <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://weloveiconfonts.com/api/?family=zocial"/>
+    <link rel="stylesheet" type="text/css" href="/css/zocial.css">
+    <!-- javascript -->
+    <script type="text/javascript" src="/js/jquery-1.11.1.js"></script>
+</head>
+
+
+<body> 
+
+  <header>
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        {% if user %}
+          {{user.name}} (<a class="login-link" href="/logout">logout</a>)
+        {% else %}
+          <a class="login-link" href="/login">login</a>
+          |
+          <a class="login-link" href="/signup">signup</a>
+        {% endif %}
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-md-12">
+        <div class="blog-title">
+          <a href="/blog" class="main-title">My Blog</a>
+        </div>
+      </div>
+    </div>
+  </header>   
+
+
+          
+  {% block content %}
+  <article>
+
+  
+  {% endblock %}
+
+  </article>
+
+</body>
+
+</html>
+

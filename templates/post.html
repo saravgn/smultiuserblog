@@ -1,0 +1,28 @@
+<div class="post">
+  <br><br>
+  <div class="row">
+
+    <div class="col-md-6">
+      <div class="post-title">
+        {{p.subject}}
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="post-date">
+        {{"Author:"}} {{p.author}}|{{p.created.strftime("%b %d, %Y")}}
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="post-content">
+        {{p._render_text | safe}}
+      </div>
+    </div>
+  </div>
+
+</div>
+

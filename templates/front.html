@@ -1,0 +1,119 @@
+
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="error">{{error}}</div>
+
+<br><br>
+
+<div class="new-post-button">
+	<form action="/blog/newpost">
+		<input type="submit" value="write a new post!"/>
+	</form>
+</div>
+
+<br>
+<div class="draw-line"></div>
+
+{% for p in posts %}
+	{{ p.render() | safe }}
+
+	<br>
+	<div class="post-actions">
+		<form method="post">
+			{% set post_id = p.key().id() %}
+			<input type="hidden" name="post_id" value="{{post_id}}">
+			<input type="hidden" name="like_flag" value="{{"zero"}}">
+			<!-- <h4>total score: {{p.likes_average}}</h4>  -->
+			<button type="submit">like {{p.likes}} 👍🏼</button>
+		</form>
+
+		<!-- edit -->
+		<form method="post">
+			{% set post_id = p.key().id() %}
+			<input type="hidden" name="post_id" value="{{post_id}}">
+			<input type="hidden" name="subject" value="{{subject}}">
+			<input type="hidden" name="content" value="{{content}}">
+			<input type="hidden" name="edit_post_flag" value={{"zero"}}>
+			<button type= "submit">edit post 🖍</button> 
+		</form>
+
+		<!-- delete -->
+		<form method="post">
+			{% set post_id = p.key().id() %}
+			<input type="hidden" name="post_id" value="{{post_id}}">
+			<input type="hidden" name="delete_post_flag" value={{"zero"}}>
+			<button type= "submit">delete post ❌</button> 
+		</form>
+	</div>
+
+
+	<!-- comment -->
+	<br>
+	<div class="comment">
+		<h3>Comments:</h3>
+	</div>
+
+	<br>
+	<form method="post">
+		<input type="text" name="commentContent" value="{{commentContent}}">
+   		{% set post_id = p.key().id() %}
+     	<input type="hidden" name="post_id" value="{{post_id}}">
+     	<input type="hidden" name="comment_flag" value={{"zero"}}>
+		<button type="submit">write a comment</button>
+	</form>
+	<br>
+
+
+	{% for comment in comments %}
+		{% if comment.id_post == p.key().id()%}
+			<div class="comment-author">
+				<strong>author: {{comment.author}}</strong>
+			</div>
+			<div class="comment-content">
+				{{comment.content}}
+			</div>
+
+			<div class="row">
+				<div class="comment-actions">
+		      		<div class="deleteComment">
+						<form method="post">
+					   		{% set post_id = p.key().id() %}
+							<input type="hidden" name="post_id" value="{{post_id}}">
+							{% set commautor = comment.author %}
+							<input type="hidden" name="comment_author" value="{{commautor}}">
+							<input type="hidden" name="delete_comment_flag" value="{{"zero"}}">
+							{% set comment_id = comment.key().id() %}
+							<input type="hidden" name="comment_id" value="{{comment_id}}">
+							<button type="submit">delete comment❌</button>
+						</form>
+					</div>
+
+					<div class="editComment">
+						<form method="post">
+					   		{% set post_id = p.key().id() %}
+							<input type="hidden" name="post_id" value="{{post_id}}">
+							{% set author_comment = comment.author %}
+							<input type="hidden" name="author_comment" value="{{author_comment}}">
+							<input type="hidden" name="edit_comment_flag" value="{{"zero"}}">
+							{% set comment_id = comment.key().id() %}
+							<input type="hidden" name="comment_id" value="{{comment_id}}">
+							<button type="submit">edit comment🖍</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<br>
+		{% endif %}
+	{% endfor %}
+
+{% endfor %}
+
+
+<!-- </div>
+ -->
+
+ <!-- comment -->
+{% endblock %}

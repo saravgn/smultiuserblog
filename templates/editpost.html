@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>edit post</h2>
+    <form method="post">
+      <label>
+        <div>subject</div>
+        <input type="text" name="subject" value="{{p.subject}}">
+      </label>
+
+      <label>
+        <div>blog</div>
+        <textarea name="content" rows="20" cols="50" >{{p.content}}</textarea>
+      </label>
+
+      <!-- if the error parameter in sent as parameter of the command 
+      for this html, the error is printed, if not it is not displayed-->
+      <div class="error">{{error}}</div>
+
+      <input type="hidden" name="author" value="{{author}}">
+
+      {% set post_id = p.key().id() %}
+      <input type="hidden" name="post_id" value="{{post_id}}">
+      <input type="hidden" name="edit_flag" value="{{"zero"}}">
+      <input type="submit" value="done">
+    </form>
+
+
+{% endblock %}
+
+
