@@ -10,10 +10,7 @@
       </label>
      
       <div class="error">{{error}}</div>
-
-
-   		{% set post_id = post.key().id() %}
-        <input type="hidden" name="post_id" value="{{post_id}}">
+      
         <input type="hidden" name="comment_edited" value="{{"zero"}}">
         {% set comment_id_new_comment = c.key().id() %}
 		<input type="hidden" name="comment_id_new_comment" value="{{comment_id_new_comment}}">

@@ -1,0 +1,25 @@
+
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="error">{{error}}</div>
+
+<br><br>
+<article>
+	<div class="draw-line"></div>
+	{{ p.render() | safe }}
+</article>
+<footer>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="blog_area">
+          <a class="blog-page-link" href="/blog/">back to the blog page</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+	
+{% endblock %}
