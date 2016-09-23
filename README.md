@@ -1,6 +1,9 @@
 # Author: Sara Vagnarelli
 # Multi User blog
 
+Checkout the [live](http://smultiuserblog.appspot.com/) version of this project.
+
+
 ## Description
 -----------------------------------
 
@@ -19,7 +22,6 @@ run the application through the GAE Launcher GUI
 - Add project
 - Click Browse
 
-Checkout the [live](http://smultiuserblog.appspot.com/) version of this project.
 
 ### Project specifications
 -----------------------------------
